@@ -101,7 +101,7 @@ export async function createTeam(input: unknown) {
 }
 
 export async function getLeaderboard() {
-  const pipeline = [
+  const pipeline: import('mongoose').PipelineStage[] = [
     {
       $lookup: {
         from: 'teams',
