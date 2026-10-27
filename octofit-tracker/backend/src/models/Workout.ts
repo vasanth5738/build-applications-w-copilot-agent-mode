@@ -1,10 +1,11 @@
 import { Schema, model } from 'mongoose';
 
 const workoutSchema = new Schema({
-  title: String,
-  focus: String,
-  minutes: Number,
-  difficulty: String,
+  fixtureKey: { type: String, sparse: true, unique: true },
+  title: { type: String, required: true, trim: true },
+  focus: { type: String, required: true, trim: true },
+  minutes: { type: Number, required: true, min: 1 },
+  difficulty: { type: String, required: true, trim: true },
 });
 
 export const Workout = model('Workout', workoutSchema);
